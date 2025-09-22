@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Escola Jardim Montesano</title>
+ <link rel="icon" type="image/png" href="https://i.postimg.cc/cJJTD21K/Imagem-do-Whats-App-de-2025-09-21-s-22-35-04-5918086a.jpg">
   <style>
 /* ===== RESET ===== */
 * {
@@ -199,19 +200,22 @@ form button:hover {
   margin: 0 auto;
   overflow: hidden;
   border-radius: 10px;
+  border: 3px solid #f97316; /* Adiciona uma borda visível */
+  background-color: #000; /* Cor de fundo para o carrossel */
 }
 
 .carousel-slide {
   display: flex;
   transition: transform 0.6s ease-in-out;
+  width: 100%;
 }
-
 .carousel-slide img {
   flex: 0 0 100%;
   width: 100%;
   height: 450px;
-  object-fit: cover;
+  object-fit: contain;
 }
+
 
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
@@ -357,19 +361,12 @@ footer {
   margin-top: 15px;
   border-collapse: collapse;
 }
-.calendar-table td.today::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 1px;   /* tamanho do círculo */
-  height: 1px;  /* diminui o círculo */
+.calendar-table td.event-day {
   background: #f97316;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1; /* fica atrás do número */
+  color: #000;
+  font-weight: bold;
+  border-radius: 8px;
 }
-
 .calendar-table th,
 .calendar-table td {
   width: 14.2%;
@@ -380,9 +377,9 @@ footer {
 }
 
 .calendar-table td.event-day {
-  background: rgba(249,115,22,0.15);
+  background: #f97316;
+  color: #000;
   font-weight: bold;
-  color: #f97316;
   border-radius: 8px;
 }
 
@@ -390,7 +387,7 @@ footer {
   background: #f97316;
   color: #000;
   font-weight: bold;
-  border-radius: 50%;
+  border-radius: 8px; /* se quiser com cantos arredondados */
 }
 body {
     text-align: center;
@@ -528,24 +525,85 @@ body {
     .delete-button:hover {
         background-color: #cc0000;
     }
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.school-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #f97316;
+  text-shadow: 1px 1px 2px black;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .logo-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .school-name {
+    font-size: 1.4rem;
+    text-align: left;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+nav ul li a {
+  position: relative;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+nav ul li a:active {
+  transform: scale(0.9);
+  color: #ff6a00; /* Cor que quiser no clique */
+}
+nav ul li a.clicked {
+  animation: clickEffect 0.3s ease;
+}
+
+@keyframes clickEffect {
+  0% {
+    transform: scale(1);
+    color: #f97316;
+  }
+  50% {
+    transform: scale(0.8);
+    color: #ff6a00;
+  }
+  100% {
+    transform: scale(1);
+    color: #f97316;
+  }
+}
   </style>
+
 </head>
 <body>
-  <header>
+ <header>
+  <div class="logo-container">
     <div class="logo" id="logo">
       <img src="https://i.postimg.cc/63nhKJDR/997afae1-4a3e-4372-8989-c768a770e566.jpg" alt="Logo da Escola Jardim Montesano">
     </div>
-    <nav>
-      <ul>
-        <li><a href="#home">Início</a></li>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#Ensinos">Ensinos</a></li>
-        <li><a href="#noticias">Notícias</a></li>
-        <li><a href="#contato">Contato</a></li>
-        <li><a href="#login">Área do Aluno</a></li>
-      </ul>
-    </nav>
-  </header>
+    <h1 class="school-name">Escola Jardim Montesano</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#home">Início</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#Ensinos">Ensinos</a></li>
+      <li><a href="#noticias">Notícias</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li><a href="#login">Área do Aluno</a></li>
+    </ul>
+  </nav>
+</header>
+
 
   <section id="home" class="hero"></section>
 
@@ -572,11 +630,10 @@ body {
     </div>
   </section>
 
-
-    <!-- O iframe do YouTube fica dentro da div com a classe -->
+ <!-- O iframe do YouTube fica dentro da div com a classe -->
     <div class="container-video">
         <iframe
-            src="https://youtube.com/shorts/tNJFAL8d30Y?si=KlXMNIoHF6DCtDUq"
+    src="https://www.youtube.com/embed/tNJFAL8d30Y"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -584,7 +641,7 @@ body {
         </iframe>
     </div>
 
-  <section id="cursos">
+<section id="ensinos">
     <h2>Nossos Ensinos</h2>
     <div class="grid">
       <div class="card">
@@ -606,7 +663,7 @@ body {
     </div>
   </section>
 
-  <section id="calendario">
+<section id="noticias">
     <h2>📅 Calendário Escolar 2025</h2>
     <div class="calendar-container">
       <div class="calendar-header">
@@ -655,27 +712,13 @@ body {
     </div>
   </section>
 
-  <section id="aluno">
+<section id="aluno">
     <h2>Acessar Área do Aluno</h2>
     <div style="text-align: center; margin-top: 20px;">
       <a href="https://saladofuturo.educacao.sp.gov.br/escolha-de-perfil" target="_blank" class="aluno-btn">Acessar Área do Aluno</a>
     </div>
   </section>
 
- <main class="blog-container">
-
-        <!-- Formulário para criar novos posts -->
-        <section class="add-post-section">
-            <h2>Adicionar Novo Post</h2>
-            <form id="post-form">
-                <input type="text" id="post-title" placeholder="Título do post" required>
-                <textarea id="post-content" placeholder="Conteúdo do post" required></textarea>
-                <button type="submit">Publicar</button>
-            </form>
-        </section>
-
-        <!-- Área onde os posts serão carregados -->
-        <section id="posts-container"></section>
 
     </main>
 
@@ -693,8 +736,7 @@ body {
       </a>
     </div>
   </footer>
-
-  <script>
+<script>
   // Logo -> Voltar ao topo
   const logo = document.getElementById('logo');
   logo.addEventListener('click', () => {
@@ -867,6 +909,21 @@ body {
             }
         });
     });
+const menuLinks = document.querySelectorAll('nav ul li a');
+
+menuLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault(); // evitar navegação para ver o efeito, pode remover depois
+
+    link.classList.add('clicked');
+
+    setTimeout(() => {
+      link.classList.remove('clicked');
+      // Depois da animação, navega para a âncora normalmente
+      window.location = link.href;
+    }, 300);
+  });
+});
 </script>
 </body>
 </html>
