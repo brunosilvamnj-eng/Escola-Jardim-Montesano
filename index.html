@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escola Jardim Montesano</title>
+  <style>
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: #000;
+  color: #f97316;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  border-bottom: 2px solid #f97316;
+}
+
+header .logo img {
+  width: 60px;
+  border-radius: 50%;
+  border: 2px solid #f97316;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  color: #f97316;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: url('https://i.postimg.cc/YS1wMKR6/12091253-5720-4b10-b192-d765ed959bd1.jpg') no-repeat center center;
+  background-size: cover;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 0;
+}
+
+.hero h1, .hero p {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #f97316, #ffcc70);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+/* ===== SEÇÕES ===== */
+section {
+  border-bottom: 4px solid #f97316;
+  padding: 60px 20px;
+  width: 100%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #f97316;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #f97316;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: #111;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid #f97316;
+  box-shadow: 0 4px 12px rgba(249,115,22,0.2);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(249,115,22,0.4);
+}
+
+.card h3 {
+  color: #f97316;
+  margin-bottom: 10px;
+}
+
+/* ===== FORM ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form input, form textarea, form button {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+form button {
+  background: #000;
+  color: #f97316;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+form button:hover {
+  background: #222;
+}
+
+/* ===== GALERIA ===== */
+#galeria {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.galeria-grid img {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid #f97316;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ===== CARROSSEL ===== */
+#carrossel {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.carousel-slide img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+  .carousel-slide img {
+    height: 250px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* ===== TEXTO ===== */
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+p {
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+/* ===== BOTÃO ÁREA DO ALUNO ===== */
+.aluno-btn {
+  background: #f97316;
+  color: #000;
+  padding: 15px 35px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.aluno-btn:hover {
+  background: #fff;
+  color: #f97316;
+  transform: scale(1.05);
+}
+
+/* ===== ÍCONES DE REDES SOCIAIS ===== */
+.social-icons {
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-btn {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.social-btn img {
+  width: 30px;
+  height: 30px;
+}
+
+.social-btn:hover {
+  transform: scale(1.2);
+}
+
+.social-btn.whatsapp { background-color: #25D366; }
+.social-btn.instagram { background-color: #E1306C; }
+.social-btn.facebook { background-color: #3b5998; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: #000;
+  color: #f97316;
+  text-align: left;
+  padding: 15px 30px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid #f97316;
+}
+
+.social-icons-footer {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons-footer a img {
+  width: 45px;
+  height: 45px;
+  transition: 0.3s;
+}
+
+.social-icons-footer a img:hover {
+  transform: scale(1.2);
+}
+
+/* ===== CALENDÁRIO ===== */
+.calendar-container {
+  background: #111;
+  border: 2px solid #f97316;
+  border-radius: 20px;
+  padding: 25px;
+  color: #fff;
+}
+
+.calendar-header {
+  background: #f97316;
+  color: #000;
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-header button {
+  background: #000;
+  color: #f97316;
+  border: 1px solid #f97316;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.calendar-header button:hover {
+  background: #f97316;
+  color: #000;
+}
+
+.calendar-table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+.calendar-table td.today::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1px;   /* tamanho do círculo */
+  height: 1px;  /* diminui o círculo */
+  background: #f97316;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1; /* fica atrás do número */
+}
+
+.calendar-table th,
+.calendar-table td {
+  width: 14.2%;
+  height: 70px;
+  text-align: center;
+  border: 1px solid #222;
+  cursor: pointer;
+}
+
+.calendar-table td.event-day {
+  background: rgba(249,115,22,0.15);
+  font-weight: bold;
+  color: #f97316;
+  border-radius: 8px;
+}
+
+.calendar-table td.today {
+  background: #f97316;
+  color: #000;
+  font-weight: bold;
+  border-radius: 50%;
+}
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para o contêiner do vídeo */
+.container-video {
+    /* Define o estilo da borda: 5px de espessura, sólida e cor laranja */
+    border: 5px solid orange;
+   
+    /* Centraliza o bloco do contêiner na página */
+    margin: 20px auto;
+   
+    /* Define a largura máxima para que ele não ocupe a tela toda */
+    max-width: 560px;
+}
+
+/* Estilos para o iframe, para que ele se ajuste ao contêiner */
+.container-video iframe {
+    /* Ocupa 100% da largura do contêiner */
+    width: 100%;
+   
+    /* Faz o iframe se comportar como um elemento de bloco para remover o espaço extra */
+    display: block;
+   
+    /* Remove a borda original do iframe, se houver */
+    border: none;
+}
+        /* Estilos gerais */
+
+
+        .blog-header {
+            background-color: #004d99;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .blog-header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        .blog-header p {
+            margin: 5px 0 0;
+            font-size: 1.2em;
+        }
+
+        .blog-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        /* Formulário de adição de posts */
+        .add-post-section {
+            background-color: white;
+            border: 5px solid orange;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .add-post-section input,
+        .add-post-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .add-post-section button {
+            background-color: #004d99;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Estilos dos posts gerados */
+        .post {
+            background-color: white;
+            border: 5px solid orange;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: left;
+            display: block; /* Para que o espaço extra não apareça */
+        }
+
+        .post-title {
+            color: #004d99;
+            margin-top: 0;
+        }
+
+        .post-meta {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+
+        .post-content {
+            line-height: 1.6;
+        }
+
+        /* Estilos para tela pequena */
+        @media (max-width: 600px) {
+            .blog-header h1 {
+                font-size: 2em;
+            }
+        }
+  /* ... seu CSS anterior ... */
+
+    .post-actions {
+        margin-top: 20px;
+        text-align: right;
+    }
+   
+    .delete-button {
+        background-color: #ff4d4d; /* Cor vermelha para o botão de excluir */
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .delete-button:hover {
+        background-color: #cc0000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo" id="logo">
+      <img src="https://i.postimg.cc/63nhKJDR/997afae1-4a3e-4372-8989-c768a770e566.jpg" alt="Logo da Escola Jardim Montesano">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#home">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#Ensinos">Ensinos</a></li>
+        <li><a href="#noticias">Notícias</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="#login">Área do Aluno</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero"></section>
+
+  <section id="sobre">
+    <h2>Sobre Nós</h2>
+    <section class="banner">
+      <img src="https://i.postimg.cc/TwTnp1y6/Banner-Tecnologia-da-Informa-o-Corporativo-Moderno-Azul-2.png" alt="Banner Escola Jardim Montesano">
+    </section>
+  </section>
+
+  <!-- CARROSSEL AUTOMÁTICO -->
+  <section id="carrossel">
+    <h2>Carrossel de Fotos</h2>
+    <div class="carousel-slide">
+      <img src="https://i.postimg.cc/prcwq2VH/4008e34b-1337-48b3-a7e9-27577253b30c.jpg" alt="Foto 1">
+      <img src="https://i.postimg.cc/Dy8kmb5y/5b9e8c72-e658-4680-b9be-72d6996ad106.jpg" alt="Foto 2">
+      <img src="https://i.postimg.cc/MpQCm2hC/939f1bce-1086-4d66-9cb9-8310f7e22c1d.jpg" alt="Foto 3">
+      <img src="https://i.postimg.cc/5tmksxpR/66d4444d-d837-4027-a7db-db4005590739.jpg" alt="Foto 4">
+      <img src="https://i.postimg.cc/mZcZKqf1/Whats-App-Image-2025-09-17-at-14-42-57.jpg" alt="Foto 5">
+      <img src="https://i.postimg.cc/MKtCd5m2/Whats-App-Image-2025-09-17-at-14-42-58.jpg" alt="Foto 6">
+      <img src="https://i.postimg.cc/DwMtKzNx/Whats-App-Image-2025-09-17-at-14-43-08.jpg" alt="Foto 7">
+      <img src="https://i.postimg.cc/R0tb5LK0/Whats-App-Image-2025-09-17-at-14-43-05.jpg" alt="Foto 8">
+      <img src="https://i.postimg.cc/Wz556WL5/Whats-App-Image-2025-09-17-at-14-42-59.jpg" alt="Foto 9">
+    </div>
+  </section>
+
+
+    <!-- O iframe do YouTube fica dentro da div com a classe -->
+    <div class="container-video">
+        <iframe
+            src="https://youtube.com/shorts/tNJFAL8d30Y?si=KlXMNIoHF6DCtDUq"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+  <section id="cursos">
+    <h2>Nossos Ensinos</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Ensino Fundamental</h3>
+        <p>Formação completa em português, matemática, ciências e história.</p>
+      </div>
+      <div class="card">
+        <h3>Ensino Médio</h3>
+        <p>Preparação para vestibulares, ENEM e mercado de trabalho.</p>
+      </div>
+      <div class="card">
+        <h3>Administração</h3>
+        <p>Capacitação em gestão, finanças e planejamento empresarial.</p>
+      </div>
+      <div class="card">
+        <h3>Logística</h3>
+        <p>Formação prática em transporte, armazenamento e distribuição de produtos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="calendario">
+    <h2>📅 Calendário Escolar 2025</h2>
+    <div class="calendar-container">
+      <div class="calendar-header">
+        <button id="prevMonth">◀</button>
+        <h3 id="monthYear"></h3>
+        <button id="nextMonth">▶</button>
+      </div>
+      <table class="calendar-table">
+        <thead>
+          <tr>
+            <th>Dom</th>
+            <th>Seg</th>
+            <th>Ter</th>
+            <th>Qua</th>
+            <th>Qui</th>
+            <th>Sex</th>
+            <th>Sáb</th>
+          </tr>
+        </thead>
+        <tbody id="calendarBody"></tbody>
+      </table>
+      <div class="calendar-legend">
+        <p><span class="event-dot"></span> Evento Escolar</p>
+        <p><span class="today-dot"></span> Hoje</p>
+      </div>
+      <div id="eventDetails" class="event-details"></div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <h2>Entre em Contato</h2>
+    <p>📍 Endereço: Rua Oceania 49 - Jardim Montesano, Itapecerica da Serra - SP</p>
+    <p>📞 Telefone: (11) 4666-3760</p>
+
+    <!-- MAPA -->
+    <div style="margin-top: 20px; text-align: center;">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.645585463173!2d-46.85505332550549!3d-23.688629178712567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cfacefa5215c01%3A0x632c76102aafa171!2sR.%20Oceania%2C%2049%20-%20Vila%20Joao%20Montesano%2C%20Itapecerica%20da%20Serra%20-%20SP%2C%2006853-530!5e0!3m2!1spt-BR!2sbr!4v1757548938765!5m2!1spt-BR!2sbr"
+        width="100%"
+        height="400"
+        style="border:0; border-radius:12px;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+  <section id="aluno">
+    <h2>Acessar Área do Aluno</h2>
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="https://saladofuturo.educacao.sp.gov.br/escolha-de-perfil" target="_blank" class="aluno-btn">Acessar Área do Aluno</a>
+    </div>
+  </section>
+
+ <main class="blog-container">
+
+        <!-- Formulário para criar novos posts -->
+        <section class="add-post-section">
+            <h2>Adicionar Novo Post</h2>
+            <form id="post-form">
+                <input type="text" id="post-title" placeholder="Título do post" required>
+                <textarea id="post-content" placeholder="Conteúdo do post" required></textarea>
+                <button type="submit">Publicar</button>
+            </form>
+        </section>
+
+        <!-- Área onde os posts serão carregados -->
+        <section id="posts-container"></section>
+
+    </main>
+
+  <footer>
+    <p>&copy; 2025 Escola Jardim Montesano - Todos os direitos reservados.</p>
+    <div class="social-icons-footer">
+      <a href="https://wa.me/5511911249599" target="_blank">
+        <img src="https://static.vecteezy.com/system/resources/previews/016/716/468/original/whatsapp-icon-free-png.png" alt="WhatsApp">
+      </a>
+      <a href="https://www.instagram.com/peimontesano?igsh=MWc2NTQ0YW1sYXl6Zg==" target="_blank">
+        <img src="https://imagepng.org/wp-content/uploads/2017/08/instagram-icone-icon.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=100075462421060&ref=ig_profile_ac_sc_bc&target=100075462421060&funlid=2MPMdP3Whx0YnXAk" target="_blank">
+        <img src="https://static.vecteezy.com/system/resources/previews/016/716/447/large_2x/facebook-icon-free-png.png" alt="Facebook">
+      </a>
+    </div>
+  </footer>
+
+  <script>
+  // Logo -> Voltar ao topo
+  const logo = document.getElementById('logo');
+  logo.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // === CALENDÁRIO INTERATIVO ===
+  (function(){
+    const monthYear = document.getElementById("monthYear");
+    const calendarBody = document.getElementById("calendarBody");
+    const prevBtn = document.getElementById("prevMonth");
+    const nextBtn = document.getElementById("nextMonth");
+    const eventDetails = document.getElementById("eventDetails");
+
+    let today = new Date();
+    let currentDate = new Date(today.getFullYear(), today.getMonth());
+
+    const events = {
+      "2025-03-10": "Início do Ano Letivo",
+      "2025-06-15": "Festa Junina",
+      "2025-12-20": "Encerramento do Ano",
+      "2025-12-20": "Encerramento do Ano",
+      "2025-12-20": "Encerramento do Ano",
+      "2025-12-20": "Encerramento do Ano",
+      "2025-12-20": "Encerramento do Ano",
+      "2025-12-20": "Encerramento do Ano",
+      "2025-12-20": "Encerramento do Ano",
+      "2025-12-20": "Encerramento do Ano",
+      "2025-12-20": "Encerramento do Ano",
+    };
+
+    function renderCalendar(date){
+      const year = date.getFullYear();
+      const month = date.getMonth();
+      const firstDay = new Date(year, month, 1).getDay();
+      const lastDate = new Date(year, month+1, 0).getDate();
+      const monthNames = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+
+      monthYear.innerText = `${monthNames[month]} ${year}`;
+      calendarBody.innerHTML = "";
+      let row = document.createElement("tr");
+
+      for(let i=0; i<firstDay; i++){
+        row.appendChild(document.createElement("td"));
+      }
+
+      for(let day=1; day<=lastDate; day++){
+        const cell = document.createElement("td");
+        const dateStr = `${year}-${String(month+1).padStart(2,"0")}-${String(day).padStart(2,"0")}`;
+        cell.innerText = day;
+
+        if(events[dateStr]){
+          cell.classList.add("event-day");
+          cell.addEventListener("click", ()=>{
+            eventDetails.innerHTML = `<h4>📌 Evento em ${day}/${month+1}/${year}</h4><p>${events[dateStr]}</p>`;
+          });
+        }
+
+        if(day === today.getDate() && month === today.getMonth() && year === today.getFullYear()){
+          cell.classList.add("today");
+        }
+
+        row.appendChild(cell);
+        if((firstDay+day) % 7 === 0){
+          calendarBody.appendChild(row);
+          row = document.createElement("tr");
+        }
+      }
+      if(row.children.length){
+        calendarBody.appendChild(row);
+      }
+    }
+
+    prevBtn.addEventListener("click", ()=>{
+      currentDate.setMonth(currentDate.getMonth()-1);
+      renderCalendar(currentDate);
+    });
+
+    nextBtn.addEventListener("click", ()=>{
+      currentDate.setMonth(currentDate.getMonth()+1);
+      renderCalendar(currentDate);
+    });
+
+    renderCalendar(currentDate);
+  })();
+
+  // Carrossel
+  let currentIndex = 0;
+  const slides = document.querySelector(".carousel-slide");
+  const totalSlides = slides.children.length;
+
+  function showNextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    slides.style.transform = `translateX(${-currentIndex * 100}%)`;
+  }
+
+  setInterval(showNextSlide, 4000);
+    // Espera o documento HTML ser completamente carregado para o blog
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('post-form');
+        const postsContainer = document.getElementById('posts-container');
+       
+        // Carrega os posts salvos no localStorage
+        renderPosts();
+
+        // Adiciona um evento para o formulário
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // Impede o recarregamento da página
+
+            const title = document.getElementById('post-title').value;
+            const content = document.getElementById('post-content').value;
+           
+            const newPost = {
+                title: title,
+                content: content,
+                date: new Date().toLocaleDateString('pt-BR')
+            };
+
+            savePost(newPost);
+            renderPosts();
+            form.reset();
+        });
+
+        function loadPosts() {
+            const posts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+            return posts;
+        }
+
+        function savePost(post) {
+            const posts = loadPosts();
+            posts.unshift(post);
+            localStorage.setItem('blogPosts', JSON.stringify(posts));
+        }
+
+        // Função renderPosts atualizada com o botão de exclusão
+        function renderPosts() {
+            const posts = loadPosts();
+            postsContainer.innerHTML = '';
+
+            posts.forEach((post, index) => {
+                const postElement = document.createElement('article');
+                postElement.classList.add('post');
+               
+                postElement.innerHTML = `
+                    <h2 class="post-title">${post.title}</h2>
+                    <p class="post-meta">Publicado em ${post.date}</p>
+                    <p class="post-content">${post.content}</p>
+                    <div class="post-actions">
+                        <button class="delete-button" data-index="${index}">Excluir</button>
+                    </div>
+                `;
+               
+                postsContainer.appendChild(postElement);
+            });
+        }
+       
+        function deletePost(index) {
+            const posts = loadPosts();
+            posts.splice(index, 1);
+            localStorage.setItem('blogPosts', JSON.stringify(posts));
+            renderPosts();
+        }
+
+        postsContainer.addEventListener('click', (event) => {
+            if (event.target.classList.contains('delete-button')) {
+                const index = event.target.getAttribute('data-index');
+                if (confirm('Tem certeza que deseja excluir esta publicação?')) {
+                    deletePost(index);
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

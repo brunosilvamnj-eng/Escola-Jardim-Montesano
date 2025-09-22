@@ -1,0 +1,525 @@
+  <style>
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: #000;
+  color: #f97316;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  border-bottom: 2px solid #f97316;
+}
+
+header .logo img {
+  width: 60px;
+  border-radius: 50%;
+  border: 2px solid #f97316;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  color: #f97316;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: url('https://i.postimg.cc/YS1wMKR6/12091253-5720-4b10-b192-d765ed959bd1.jpg') no-repeat center center;
+  background-size: cover;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 0;
+}
+
+.hero h1, .hero p {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #f97316, #ffcc70);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+/* ===== SEÇÕES ===== */
+section {
+  border-bottom: 4px solid #f97316;
+  padding: 60px 20px;
+  width: 100%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #f97316;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #f97316;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: #111;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid #f97316;
+  box-shadow: 0 4px 12px rgba(249,115,22,0.2);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(249,115,22,0.4);
+}
+
+.card h3 {
+  color: #f97316;
+  margin-bottom: 10px;
+}
+
+/* ===== FORM ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form input, form textarea, form button {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+form button {
+  background: #000;
+  color: #f97316;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+form button:hover {
+  background: #222;
+}
+
+/* ===== GALERIA ===== */
+#galeria {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.galeria-grid img {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid #f97316;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ===== CARROSSEL ===== */
+#carrossel {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.carousel-slide img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+  .carousel-slide img {
+    height: 250px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* ===== TEXTO ===== */
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+p {
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+/* ===== BOTÃO ÁREA DO ALUNO ===== */
+.aluno-btn {
+  background: #f97316;
+  color: #000;
+  padding: 15px 35px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.aluno-btn:hover {
+  background: #fff;
+  color: #f97316;
+  transform: scale(1.05);
+}
+
+/* ===== ÍCONES DE REDES SOCIAIS ===== */
+.social-icons {
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-btn {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.social-btn img {
+  width: 30px;
+  height: 30px;
+}
+
+.social-btn:hover {
+  transform: scale(1.2);
+}
+
+.social-btn.whatsapp { background-color: #25D366; }
+.social-btn.instagram { background-color: #E1306C; }
+.social-btn.facebook { background-color: #3b5998; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: #000;
+  color: #f97316;
+  text-align: left;
+  padding: 15px 30px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid #f97316;
+}
+
+.social-icons-footer {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons-footer a img {
+  width: 45px;
+  height: 45px;
+  transition: 0.3s;
+}
+
+.social-icons-footer a img:hover {
+  transform: scale(1.2);
+}
+
+/* ===== CALENDÁRIO ===== */
+.calendar-container {
+  background: #111;
+  border: 2px solid #f97316;
+  border-radius: 20px;
+  padding: 25px;
+  color: #fff;
+}
+
+.calendar-header {
+  background: #f97316;
+  color: #000;
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-header button {
+  background: #000;
+  color: #f97316;
+  border: 1px solid #f97316;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.calendar-header button:hover {
+  background: #f97316;
+  color: #000;
+}
+
+.calendar-table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+.calendar-table td.today::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1px;   /* tamanho do círculo */
+  height: 1px;  /* diminui o círculo */
+  background: #f97316;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1; /* fica atrás do número */
+}
+
+.calendar-table th,
+.calendar-table td {
+  width: 14.2%;
+  height: 70px;
+  text-align: center;
+  border: 1px solid #222;
+  cursor: pointer;
+}
+
+.calendar-table td.event-day {
+  background: rgba(249,115,22,0.15);
+  font-weight: bold;
+  color: #f97316;
+  border-radius: 8px;
+}
+
+.calendar-table td.today {
+  background: #f97316;
+  color: #000;
+  font-weight: bold;
+  border-radius: 50%;
+}
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para o contêiner do vídeo */
+.container-video {
+    /* Define o estilo da borda: 5px de espessura, sólida e cor laranja */
+    border: 5px solid orange;
+   
+    /* Centraliza o bloco do contêiner na página */
+    margin: 20px auto;
+   
+    /* Define a largura máxima para que ele não ocupe a tela toda */
+    max-width: 560px;
+}
+
+/* Estilos para o iframe, para que ele se ajuste ao contêiner */
+.container-video iframe {
+    /* Ocupa 100% da largura do contêiner */
+    width: 100%;
+   
+    /* Faz o iframe se comportar como um elemento de bloco para remover o espaço extra */
+    display: block;
+   
+    /* Remove a borda original do iframe, se houver */
+    border: none;
+}
+        /* Estilos gerais */
+
+
+        .blog-header {
+            background-color: #004d99;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .blog-header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        .blog-header p {
+            margin: 5px 0 0;
+            font-size: 1.2em;
+        }
+
+        .blog-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        /* Formulário de adição de posts */
+        .add-post-section {
+            background-color: white;
+            border: 5px solid orange;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .add-post-section input,
+        .add-post-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .add-post-section button {
+            background-color: #004d99;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Estilos dos posts gerados */
+        .post {
+            background-color: white;
+            border: 5px solid orange;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: left;
+            display: block; /* Para que o espaço extra não apareça */
+        }
+
+        .post-title {
+            color: #004d99;
+            margin-top: 0;
+        }
+
+        .post-meta {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+
+        .post-content {
+            line-height: 1.6;
+        }
+
+        /* Estilos para tela pequena */
+        @media (max-width: 600px) {
+            .blog-header h1 {
+                font-size: 2em;
+            }
+        }
+  /* ... seu CSS anterior ... */
+
+    .post-actions {
+        margin-top: 20px;
+        text-align: right;
+    }
+   
+    .delete-button {
+        background-color: #ff4d4d; /* Cor vermelha para o botão de excluir */
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .delete-button:hover {
+        background-color: #cc0000;
+    }
+  </style>
